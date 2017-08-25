@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:44:54 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/15 17:44:56 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:22:50 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 t_mat	ft_new_matrix(void)
 {

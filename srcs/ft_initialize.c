@@ -6,14 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:27:41 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/23 14:59:20 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 20:58:18 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
-
-//finite solids
-//direct light vs indirect light?
+#include "rt.h"
 
 void	ft_init_window(t_globals *glob, int fd)
 {
@@ -50,6 +47,7 @@ void	ft_init_camera(t_globals *glob, int fd)
 	y_rads = atan2(-cam_dir.x, -cam_dir.z);
 	z_rads = cam->roll;
 	cam->transform = ft_get_transform(cam->translation, x_rads, y_rads, z_rads);
+	cam->origin_img = ft_mat_vec_mult(cam->transform, cam->ray.o);
 }
 
 void	ft_init_scene(t_globals *glob, int fd)
@@ -57,7 +55,6 @@ void	ft_init_scene(t_globals *glob, int fd)
 	t_scene	*scene;
 	int		i;
 	int		light_cnt;
-
 
 	glob->scene = (t_scene*)ft_malloc(sizeof(t_scene));
 	scene = glob->scene;

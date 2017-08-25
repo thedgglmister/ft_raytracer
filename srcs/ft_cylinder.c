@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 18:09:35 by biremong          #+#    #+#             */
-/*   Updated: 2017/08/21 15:00:19 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:21:36 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 double	*ft_cylinder_hit_dist(t_ray ray, double r)
 {

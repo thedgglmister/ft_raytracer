@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_scene_1.c                                 :+:      :+:    :+:   */
+/*   ft_parse_helpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:35:34 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/24 19:29:34 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 20:55:18 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 void	ft_skip_empty_line(int fd)
 {
@@ -28,14 +28,14 @@ char	*ft_parse_str(int fd, char *category)
 	int		ret;
 	char	*buffer;
 	char	*str;
-	
+
 	ret = ft_gnl(fd, &buffer);
 	if (!ret)
 		ft_error("Invalid End of File");
 	else if (ret < 0)
 		ft_error("Error Reading File");
 	if (!ft_strnstr(buffer, category, ft_strlen(category)))
-		ft_error("Format Error");//specify more detail, like %s the line?
+		ft_error("Format Error");
 	str = ft_strtrim(ft_strchr(buffer, ':') + 1);
 	free(buffer);
 	return (str);
@@ -89,5 +89,3 @@ t_rgb	ft_parse_rgb(int fd, char *category)
 	ft_arrdel2(args);
 	return (rgb);
 }
-
-

@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:23:15 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/15 18:23:09 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 20:59:35 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 void	ft_set_hooks(t_globals *glob)
 {
@@ -28,7 +28,7 @@ int		ft_on_keypress(int keycode, void *param)
 	return (0);
 }
 
-int		ft_on_exit(void	*param)
+int		ft_on_exit(void *param)
 {
 	ft_free((t_globals*)param);
 	exit(0);

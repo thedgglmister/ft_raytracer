@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:35:22 by biremong          #+#    #+#             */
-/*   Updated: 2017/08/21 15:00:48 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:22:59 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 double	*ft_parabaloid_hit_dist(t_ray ray, double s)
 {

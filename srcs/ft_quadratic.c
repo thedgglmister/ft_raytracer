@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:36:48 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/24 17:45:03 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:23:34 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 double	*ft_solve_quadratic(double a, double b, double c)
 {

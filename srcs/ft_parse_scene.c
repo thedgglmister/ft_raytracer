@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_scene_2.c                                 :+:      :+:    :+:   */
+/*   ft_parse_scene.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:36:12 by biremong          #+#    #+#             */
-/*   Updated: 2017/08/21 18:18:04 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 20:50:13 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 void	ft_parse_cam_info(int fd, t_camera *cam)
 {
 	ft_skip_empty_line(fd);
 	cam->translation = ft_parse_vec(fd, "CAMERA POSITION:");
 	cam->target = ft_parse_vec(fd, "CAMERA TARGET:");
-	cam->roll = TO_RAD(ft_parse_val(fd, "CAMERA ROLL:"));
+	cam->roll = 0;//TO_RAD(ft_parse_val(fd, "CAMERA ROLL:"));
 	cam->fov = TO_RAD(ft_parse_val(fd, "CAMERA FOV:"));
 }
 
@@ -40,22 +40,16 @@ void	ft_parse_light_info(int fd, t_light *light)
 
 t_rgb	ft_calc_amb_rgb(int fd, t_light *lights, int light_cnt)
 {
-	int 	i;
+	int		i;
 	double	amb_k;
 	t_rgb	total;
 
 	total = (t_rgb){0, 0, 0};
 	i = -1;
 	while (++i < light_cnt)
-	{
-		total.r += lights[i].emission.r;
-		total.g += lights[i].emission.g;
-		total.b += lights[i].emission.b;
-	}
+		total = ft_rgb_add(total, lights[i].emission);
 	amb_k = ft_parse_val(fd, "AMBIENT LIGHT:");
-	total.r *= amb_k / light_cnt;
-	total.g *= amb_k / light_cnt;
-	total.b *= amb_k / light_cnt;
+	total = ft_rgb_scale(total, amb_k / light_cnt);
 	return (total);
 }
 
@@ -68,14 +62,14 @@ void	ft_parse_obj_info(int fd, t_obj *obj)
 	obj->scalar = ft_parse_val(fd, "\tSCALAR:");//limit?
 	obj->y_rads = TO_RAD(ft_parse_val(fd, "\tYAW:"));
 	obj->x_rads = TO_RAD(ft_parse_val(fd, "\tPITCH:"));
-	obj->z_rads = TO_RAD(ft_parse_val(fd, "\tROLL:"));
+	obj->z_rads = 0;//TO_RAD(ft_parse_val(fd, "\tROLL:"));
 	ft_parse_limits(fd, obj->min_lim, obj->max_lim);
 	obj->diffusion = ft_parse_rgb(fd, "\tDIFFUSION:"); //limit?
 	obj->gloss = ft_parse_val(fd, "\tGLOSS:");//limit?
 	obj->phong_exp = ft_parse_val(fd, "\tPHONG EXP:");//limit?
 	obj->k_refl = ft_parse_val(fd, "\tREFLECTION:"); //limit?
 	obj->k_refr = ft_parse_val(fd, "\tREFRACTION:"); //limit?
-	obj->n2 = 10;/////////////////////////////////////////////hard-coded
+	obj->iof = ft_parse_val(fd, "\tIOF:");//limt?
 	obj->transform = ft_get_transform(obj->translation,
 										obj->x_rads,
 										obj->y_rads,
@@ -85,9 +79,9 @@ void	ft_parse_obj_info(int fd, t_obj *obj)
 
 void	ft_parse_limits(int fd, double min_lim[3], double max_lim[3])
 {
-	char 	*str[2];
+	char	*str[2];
 	char	**args[2];
-	int 	i;
+	int		i;
 
 	str[0] = ft_parse_str(fd, "\tMIN LIMITS:");
 	str[1] = ft_parse_str(fd, "\tMAX LIMITS:");

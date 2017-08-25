@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:36:36 by biremong          #+#    #+#             */
-/*   Updated: 2017/08/21 15:01:10 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:23:28 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 double	*ft_plane_hit_dist(t_ray ray)
 {

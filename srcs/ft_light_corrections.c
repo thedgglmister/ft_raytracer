@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:33:07 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/15 17:46:02 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 19:36:59 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 t_rgb	ft_gamma_correction(t_rgb light, double gamma)
 {
@@ -25,9 +25,7 @@ t_rgb	ft_scale_white(t_rgb light)
 	double max;
 
 	max = fmax(1, fmax(light.r, fmax(light.g, light.b)));
-	light.r /= max;
-	light.g /= max;
-	light.b /= max;
+	light = ft_rgb_scale(light, (float)1 / max);
 	return (light);
 }
 
@@ -48,18 +46,10 @@ t_rgb	ft_combine_samples(t_rgb samples[SS_CNT])
 	t_rgb	combined;
 	int		i;
 
-	combined.r = 0;
-	combined.g = 0;
-	combined.b = 0;
+	combined = (t_rgb){0, 0, 0};
 	i = -1;
 	while (++i < SS_CNT)
-	{
-		combined.r += samples[i].r;
-		combined.g += samples[i].g;
-		combined.b += samples[i].b;
-	}
-	combined.r /= SS_CNT;
-	combined.g /= SS_CNT;
-	combined.b /= SS_CNT;
+		combined = ft_rgb_add(combined, samples[i]);
+	combined = ft_rgb_scale(combined, (float)1 / SS_CNT);
 	return (combined);
 }

@@ -1,51 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector_1.c                                      :+:      :+:    :+:   */
+/*   ft_rgb.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:37:58 by biremong          #+#    #+#             */
-/*   Updated: 2017/08/24 20:48:21 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:59:41 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-double	ft_dot_product(t_vec u, t_vec v)
+t_rgb	ft_rgb_add(t_rgb rgb1, t_rgb rgb2)
 {
-	return (u.x * v.x + u.y * v.y + u.z * v.z);
+	rgb1.r += rgb2.r;
+	rgb1.g += rgb2.g;
+	rgb1.b += rgb2.b;
+	return (rgb1);
 }
 
-double	ft_magnitude(t_vec v)
+t_rgb	ft_rgb_mult(t_rgb rgb1, t_rgb rgb2)
 {
-	return (sqrt(ft_dot_product(v, v)));
+	rgb1.r *= rgb2.r;
+	rgb1.g *= rgb2.g;
+	rgb1.b *= rgb2.b;
+	return (rgb1);
 }
 
-void	ft_normalize(t_vec *u)
+t_rgb	ft_rgb_scale(t_rgb rgb, double s)
 {
-	double	mag;
-
-	mag = ft_magnitude(*u);
-	if (mag == 0)
-		return ;
-	*u = ft_vec_scale(*u, (1 / mag));
-}
-
-double	ft_vector_angle(t_vec u, t_vec v)
-{
-	double	dot;
-	double	mag_v;
-	double	mag_u;
-	double	ratio;
-
-	dot = ft_dot_product(u, v);
-	mag_u = ft_magnitude(u);
-	mag_v = ft_magnitude(v);
-	ratio = dot / (mag_u * mag_v);
-	if (ratio > 1)
-		ratio = 1;
-	else if (ratio < -1)
-		ratio = -1;
-	return (acos(ratio));
+	rgb.r *= s;
+	rgb.g *= s;
+	rgb.b *= s;
+	return (rgb);
 }

@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 17:37:36 by biremong          #+#    #+#             */
-/*   Updated: 2017/05/15 18:23:39 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:23:54 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 t_mat	ft_get_transform(t_vec t, double x_rads, double y_rads, double z_rads)
 {

@@ -6,11 +6,11 @@
 /*   By: biremong <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 18:09:50 by biremong          #+#    #+#             */
-/*   Updated: 2017/08/21 14:59:29 by biremong         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:21:26 by biremong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rtv1.h"
+#include "rt.h"
 
 double	*ft_cone_hit_dist(t_ray ray, double s)
 {
