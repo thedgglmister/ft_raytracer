@@ -36,7 +36,7 @@ Reflections are performed by casting rays originating from the intersection poin
 
 Refractions occur when rays intersect translucent objects. The light at the intersection point is determined by blending the reflected and refracted light at that point. A reflective ray is cast in the same way as described in the previous section. The refractive ray is calculated by bending the original ray based on the angle of incidence and the indices of refraction of the two materials. The amount of reflective and refractive light at the point is determined by the Fresnel equation.
 
-##### --Final Renders--
+### --Final Renders--
 
 <img src="/images/refraction_scene.png" width="800">
 <img src="/images/reflection_scene.png" width="800">
