@@ -14,17 +14,17 @@ Diffuse lighting is determined by computing the intensity of the light at a poin
 
 <img src="/images/diffuse.png" width="200">
 
-##### --Shadows--
-
-Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.
-
-<img src="/images/shadow.png" width="200">
-
 ##### --Specular Lighting--
 
 Specular lighting is calculated by computing a reflection ray by reflecting the light vector about the normal at the intersection point. The view ray is compared to the reflection ray to determine how much specular lighting to contribute. The more parallel the vectors are the more specular lighting will be added.
 
 <img src="/images/specular.png" width="200">
+
+##### --Shadows--
+
+Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.
+
+<img src="/images/shadow.png" width="200">
 
 ##### --Reflections--
 
