@@ -1,5 +1,5 @@
 # ft_raytracer
-The 4th project of the 42 Silicon Valley graphics branch
+The 4th and 5th projects of the 42 Silicon Valley graphics branch
 
 ### --Project Description--
 
@@ -60,4 +60,4 @@ The Project is written in C and in accordance with "The Norm".
     • One single variable declaration per line; cannot stick declaration and initialisation on the same line
     • No more than 5 variables per block
     • No more than 4 parameters per function
-    • Forbidden functions are: [for] [do ... while] [switch] [case] [goto]
+    • Forbidden keywords are: [for] [do ... while] [switch] [case] [goto]
