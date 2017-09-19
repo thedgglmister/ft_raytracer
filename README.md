@@ -12,31 +12,29 @@ The basic ray tracing model is as follows. A camera is placed in the world and r
 
 Diffuse lighting is determined by computing the intensity of the light at a point on the sphere. If the angle is close to the normal at that point then the intensity will be increased. The intensity determines how much of the object's color to contribute.
 
-<img src="/images/diffuse.png" width="400">
+<img src="/images/diffuse.png" width="200">
 
 ##### --Shadows--
 
 Shadows are incorporated into lighting. To determine if a light source should contribute to the lighting at an intersection point a shadow ray is cast from the intersection point to the light source. If there is an intersection before the light source then this point is in the shadow of that light source.
 
-<img src="/images/shadow.png" width="400">
+<img src="/images/shadow.png" width="200">
 
 ##### --Specular Lighting--
 
 Specular lighting is calculated by computing a reflection ray by reflecting the light vector about the normal at the intersection point. The view ray is compared to the reflection ray to determine how much specular lighting to contribute. The more parallel the vectors are the more specular lighting will be added.
 
-<img src="/images/specular.png" width="400">
+<img src="/images/specular.png" width="200">
 
 ##### --Reflections--
 
 Reflections are performed by casting rays originating from the intersection point directed along the reflection vector. A portion of the reflected ray's color will be contributed to the original intersection point based on how reflective the surface is. There is an arbitrary limit on how many reflections a ray can perform before stopping to improve performance and eliminate potential infinite loops.
 
-<img src="/images/reflection.png" width="400">
+<img src="/images/reflection.png" width="200">
 
 ##### --Refractions--
 
 Refractions occur when rays intersect translucent objects. The light at the intersection point is determined by blending the reflected and refracted light at that point. A reflective ray is cast in the same way as described in the previous section. The refractive ray is calculated by bending the original ray based on the angle of incidence and the indices of refraction of the two materials. The amount of reflective and refractive light at the point is determined by the Fresnel equation.
-
-<img src="/images/refraction.png" width="400">
 
 ##### --Final Renders--
 
