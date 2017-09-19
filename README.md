@@ -1,5 +1,5 @@
 # ft_raytracer
-The 4th project of the 42us graphics branch
+The 4th project of the 42 Silicon Valley graphics branch
 
 ### --Project Description--
 
