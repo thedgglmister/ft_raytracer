@@ -53,15 +53,15 @@ void	ft_encode_wc(wchar_t wc, unsigned char *mb_str, int *j)
 		return ;
 	}
 	else if (byte_count == 2)
-		mb_str[*j] = 192;
+		mb_str[*j] = (unsigned char)192;
 	else if (byte_count == 3)
-		mb_str[*j] = 224;
+		mb_str[*j] = (unsigned char)224;
 	else if (byte_count == 4)
-		mb_str[*j] = 240;
+		mb_str[*j] = (unsigned char)240;
 	else if (byte_count == 5)
-		mb_str[*j] = 248;
+		mb_str[*j] = (unsigned char)248;
 	else
-		mb_str[*j] = 252;
+		mb_str[*j] = (unsigned char)252;
 	while (byte_count--)
 	{
 		mb_str[*j] |= (unsigned char)((wc >> byte_count * 6) & 63);
